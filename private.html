@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curaters | Private Trips</title>
+<link rel="icon" type="image/png" href="assets/images/logo.png">
+<!-- SweetAlert2 (used for the booking confirmation) -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="curaters-preview.css">
+<script src="curaters-preview.js" defer></script>
+</head>
+<body class="cur" data-page="private">
+<div class="cur-preview-note"><strong>DESIGN PREVIEW</strong> · Local test copy — original website and server features are unchanged</div>
+<div class="cur-progress" aria-hidden="true"></div>
+<header class="cur-nav">
+    <div class="cur-nav-in">
+        <a class="cur-brand" href="index.html" aria-label="Curaters home"><img src="assets/images/logo.png" alt="Curaters"></a>
+        <nav class="cur-tabs" aria-label="Trip categories"><a href="index.html" class="cur-tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Day Trips</a><a href="private.html" class="cur-tab is-active" aria-current="page"><svg viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 118 0v3.5"/></svg>Private</a><a href="group-trips.html" class="cur-tab"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 010 6.8M18 14.3c2.2.7 3.5 2.6 3.5 5.7"/></svg>Group</a><a href="hosted-trips.html" class="cur-tab"><svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>Hosted</a></nav>
+        <button class="cur-saved-btn" type="button" data-open-saved aria-label="Open saved trips"><svg viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9.3C1.1 8.3 3 5 6.3 5c2 0 3.4 1.1 5.7 3.4C14.3 6.1 15.7 5 17.7 5 21 5 22.9 8.3 21.5 11.7 19.5 16.4 12 21 12 21z"/></svg><span>Saved</span><b data-saved-count>0</b></button>
+    </div>
+</header>
+<!-- BACK BUTTON (superseded by the sticky nav; kept for structure) -->
+<div class="back-btn"><a href="index.html" aria-label="Back to Day Trips">‹</a></div>
+
+<section class="cur-hero">
+    <div class="cur-hero-bg" aria-hidden="true"><span class="stars"></span><span class="sun"></span><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+        <svg class="cur-waves" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
+            <g class="w2"><path fill="rgba(255,247,234,.45)" d="M0 60 C240 10 480 110 720 60 S1200 10 1440 60 S1920 110 2160 60 S2640 10 2880 60 V130 H0Z"/></g>
+            <g class="w1"><path fill="#fff7ea" d="M0 85 C240 45 480 125 720 85 S1200 45 1440 85 S1920 125 2160 85 S2640 45 2880 85 V130 H0Z"/></g>
+        </svg>
+    </div>
+    <div class="cur-hero-in">
+        <p class="cur-eyebrow"><i></i>Curated Travel Experiences</p>
+        <h1>Your trip. <em>Your rules.</em></h1>
+        <p class="cur-lede">A private trip allows us to create a personalized itinerary thoughtfully designed around your interests, preferences, and travel style. Every detail is curated for a seamless journey made just for you.</p>
+    </div>
+</section>
+
+<!-- PRIVATE ACCESS SECTION -->
+<section class="vault" id="trips">
+    <div class="glass-card">
+        <div class="vault-top">
+            <div class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2"/><path class="shackle" d="M8 10.5V7a4 4 0 118 0v3.5"/></svg></div>
+            <h2>Private Access Required</h2>
+            <p>These exclusive private experiences are only available to verified guests with authorized access.</p>
+        </div>
+        <form method="POST" class="vault-form" id="vaultForm">
+            <label for="accessKey">Enter Access Key</label>
+            <div class="keybox">
+                <input id="accessKey" type="password" name="access_key" placeholder="Private access key" autocomplete="off" required>
+                <button class="eye" type="button" aria-label="Show key" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+            <p class="caps" id="caps" hidden>⚠ Caps Lock is on</p>
+            <button type="submit" class="btn">Unlock Private Trips</button>
+            <p class="vault-note">No key yet? <a href="#planner">Tell us about your trip</a></p>
+        </form>
+    </div>
+    <div class="teasers" aria-label="Locked private trips preview"><div class="teaser"><div class="art"></div><div class="veil"><svg viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 118 0v3.5"/></svg><b>Members-only trip</b><span>Unlocks with your key</span></div></div><div class="teaser"><div class="art"></div><div class="veil"><svg viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 118 0v3.5"/></svg><b>Members-only trip</b><span>Unlocks with your key</span></div></div><div class="teaser"><div class="art"></div><div class="veil"><svg viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 118 0v3.5"/></svg><b>Members-only trip</b><span>Unlocks with your key</span></div></div></div>
+</section>
+
+<section class="planner" id="planner-wrap">
+    <div class="intro">
+        <h2 class="cur-sec-title">Design your private trip</h2>
+        <p>Pick a few vibes, set the party size and the month. We’ll turn it into a ready-to-send email to the curators.</p>
+        <div class="summary" id="planSummary" aria-live="polite"></div>
+    </div>
+    <div class="pform" id="planner">
+        <div><span class="lbl">What’s the vibe?</span><div class="vibes"><button class="vibe" type="button" aria-pressed="false" data-v="Beach & coast"><span>🏖️</span>Beach & coast</button><button class="vibe" type="button" aria-pressed="false" data-v="Culture & history"><span>🏛️</span>Culture & history</button><button class="vibe" type="button" aria-pressed="false" data-v="Food & nightlife"><span>🍲</span>Food & nightlife</button><button class="vibe" type="button" aria-pressed="false" data-v="Nature & adventure"><span>🌿</span>Nature & adventure</button><button class="vibe" type="button" aria-pressed="false" data-v="Wellness & rest"><span>🧘</span>Wellness & rest</button><button class="vibe" type="button" aria-pressed="false" data-v="Celebration"><span>🎉</span>Celebration</button></div></div>
+        <div class="prow">
+            <div><span class="lbl">Guests</span><div class="field"><div class="stepper"><button type="button" data-pstep="-1" aria-label="Fewer guests">−</button><output id="planGuests">2</output><button type="button" data-pstep="1" aria-label="More guests">+</button></div></div></div>
+            <div><label class="lbl" for="planMonth">When</label><div class="field"><input id="planMonth" type="month"></div></div>
+        </div>
+        <div><label class="lbl" for="planNote">Anything else?</label><div class="field"><textarea id="planNote" placeholder="Celebrations, must-sees, dietary needs…"></textarea></div></div>
+        <a class="btn" id="planMail" href="mailto:travelcuraters@gmail.com"><svg width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>Email our curators</a>
+    </div>
+</section>
+
+<section class="cur-how" id="how-it-works">
+    <h2>How private trips work</h2>
+    <p class="sub">A personalised itinerary thoughtfully designed around your interests, preferences, and travel style.</p>
+    <div class="steps"><div class="step"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div><h4>Tell us your dream</h4><p>Share your style, group size and timing.</p></div><div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg></div><h4>We curate it</h4><p>A personalised itinerary designed around you.</p></div><div class="step"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></div><h4>Travel seamlessly</h4><p>Every detail handled for a journey made just for you.</p></div></div>
+</section>
+<section class="cur-cta">
+    <div><h2>Already have your key?</h2><p>Unlock the private collection above, or speak to a curator about something one-of-a-kind.</p></div>
+    <div class="cta-btns"><a class="btn dark" href="https://www.travelwithcuraters.com/contact.php">Talk to a curator</a><a class="btn ghost" href="mailto:travelcuraters@gmail.com">Email us</a></div>
+</section>
+<footer class="cur-footer">
+    <div class="cf-in">
+        <div class="cf-top">
+            <div>
+                <div class="cf-brand">
+                    <div class="logo"><img src="assets/images/logo-2.png" alt="Curaters Logo"></div>
+                    <div><p class="k">Curaters</p><h2>Curated African Travel Experiences</h2></div>
+                </div>
+                <p class="cf-about">Our vision is to turn travel into art, carefully curated, deeply felt, and impossible to forget.</p>
+                <div class="cf-cards">
+                    <!-- EMAIL -->
+                    <div class="cf-card"><p>Email</p><a href="mailto:travelcuraters@gmail.com">travelcuraters@gmail.com</a></div>
+                    <!-- PHONE (hidden in original)
+                    <div class="cf-card"><p>Phone</p><a href="tel:+233558677278">+233 55 867 7278</a></div>
+                    -->
+                </div>
+                <form class="news" id="news" novalidate>
+                    <label for="newsEmail">Get trip news</label>
+                    <div><input id="newsEmail" type="email" placeholder="you@email.com" autocomplete="email"><button type="submit">Subscribe</button></div>
+                </form>
+            </div>
+            <div class="cf-links">
+                <div>
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Destinations</a></li>
+                        <li><a href="#how-it-works">How it works</a></li>
+                        <li><a href="https://www.travelwithcuraters.com/contact.php">Plan trip</a></li>
+                        <li><a href="https://www.travelwithcuraters.com/contact.php">Private trips</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="https://www.travelwithcuraters.com/about-us.php">Why Curaters</a></li>
+                        <li><a href="https://www.travelwithcuraters.com/about-us.php">Careers</a></li>
+                        <li><a href="index.html">Travel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="cf-line"></div>
+        <div class="cf-bot">
+            <div class="cf-soc">
+                <a href="https://www.instagram.com/curaters_" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/><circle cx="17" cy="7" r="1.5" fill="currentColor"/></svg>Instagram</a>
+                <a href="https://www.tiktok.com/@curaters" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M9 3v12.5a3.5 3.5 0 1 1-2.5-3.35V9.5a7 7 0 1 0 5 6.7V7.5c1.3 1.2 3 2 4.5 2.1V6.5c-1.6-.2-3.5-1.2-4.5-2.5H9z"/></svg>TikTok</a>
+            </div>
+            <div class="cf-legal"><span>© Curaters 2026</span><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a></div>
+        </div>
+    </div>
+</footer>
+
+<!-- quick-book modal -->
+<div class="cur-modal" id="modal" hidden>
+    <div class="cm-backdrop" data-close></div>
+    <div class="cm-dialog" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+        <button class="cm-x" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <div class="cm-media" id="mMedia"></div>
+        <div class="cm-body">
+            <p class="tc-loc" id="mLoc"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span></span></p>
+            <h2 id="mTitle"></h2>
+            <p class="cm-desc" id="mDesc"></p>
+            <ul class="cm-facts" id="mFacts"></ul>
+            <div class="cm-book">
+                <div class="cm-row"><label for="mDate">Travel date</label><input type="date" id="mDate"></div>
+                <div class="cm-row"><label>Guests <span id="mRange" style="text-transform:none;letter-spacing:0;font-weight:600;color:var(--muted)"></span></label>
+                    <div class="stepper" id="mStep"><button type="button" data-step="-1" aria-label="Fewer guests">−</button><output id="mGuestsOut">2</output><button type="button" data-step="1" aria-label="More guests">+</button></div></div>
+                <div class="cm-total"><div><small id="mBreak"></small><small>Estimate · confirmed on Curaters</small></div><strong id="mTotal">$0</strong></div>
+                <div class="cm-btns"><button class="btn" id="mReserve" type="button">Reserve this trip</button><button class="cm-save" id="mSave" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9.3C1.1 8.3 3 5 6.3 5c2 0 3.4 1.1 5.7 3.4C14.3 6.1 15.7 5 17.7 5 21 5 22.9 8.3 21.5 11.7 19.5 16.4 12 21 12 21z"/></svg>Save</button></div>
+                <a class="cm-link" id="mLink" href="#" target="_blank" rel="noopener">View full details on Curaters →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- saved trips drawer -->
+<div class="cur-drawer" id="drawer" hidden>
+    <div class="cd-backdrop" data-close-drawer></div>
+    <aside class="cd-panel" aria-label="Saved trips">
+        <div class="cd-head"><h2>Saved trips</h2><button class="cm-x cd-close" style="position:static" type="button" data-close-drawer aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div class="cd-list" id="drawerList"></div>
+        <div class="cd-foot" id="drawerFoot" hidden>
+            <div class="tot"><span>Estimated total · <span id="drawerGuests"></span></span><strong id="drawerTotal">$0</strong></div>
+            <a class="btn" href="https://www.travelwithcuraters.com/contact.php">Plan these trips with us</a>
+            <button class="cd-clear" id="drawerClear" type="button">Clear all</button>
+        </div>
+    </aside>
+</div>
+<div class="cur-toasts" aria-live="polite"></div>
+<button class="cur-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+</body>
+</html>
