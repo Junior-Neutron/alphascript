@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f2ec">
+  <meta name="description" content="Curated African travel experiences. Discover thoughtful day trips, group journeys, private escapes and hosted trips with Curaters.">
+  <meta property="og:title" content="Curaters — Curated African Travel Experiences">
+  <meta property="og:description" content="Discover Africa through journeys shaped by place, people and the feeling you carry home.">
+  <title>Curaters — Curated African Travel Experiences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Curaters home"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519664035144184/fSQozJJQelTYBHEI.png" alt="Curaters" width="180" height="34"></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#destinations">Destinations</a>
+        <a href="#journeys">Ways to travel</a>
+        <a href="#story">Our vision</a>
+        <a href="#faq">FAQs</a>
+        <a class="nav-book" href="#book">Plan a trip <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> Curated African travel experiences</p>
+        <h1 id="hero-title">Go where<br>the story <em>stays.</em></h1>
+        <p class="hero-lede">Discover Africa through journeys shaped by place, people and the feeling you carry home.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#destinations">Explore destinations <span aria-hidden="true">↗</span></a>
+          <a class="button button-text" href="#book">Plan a trip <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note"><span class="note-mark">C.</span><span>Curated, not crowded.<br>Rooted in place.</span></div>
+      </div>
+      <div class="hero-frame" id="heroCarousel" role="region" aria-roledescription="carousel" aria-label="Featured African destinations">
+        <img id="heroImage" class="hero-image" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519664035144184/USaJstHYDFCReCgo.webp" alt="Lion moving through savannah grasslands in Kenya’s Maasai Mara" fetchpriority="high">
+        <div class="hero-image-shade"></div>
+        <span class="hero-frame-index" id="heroIndex">01</span>
+        <div class="hero-caption"><div><p>Featured destination</p><h2 id="heroName">Maasai Mara</h2><span id="heroCountry">Kenya</span></div><button class="round-arrow" id="heroExplore" type="button" aria-label="Explore Maasai Mara">↗</button></div>
+        <div class="carousel-controls"><button id="heroPrev" type="button" aria-label="Previous featured destination">←</button><div class="carousel-dots" id="heroDots" aria-label="Choose a featured destination"></div><span id="heroCount">01 / 05</span><button id="heroNext" type="button" aria-label="Next featured destination">→</button></div>
+      </div>
+    </section>
+
+    <div class="values-strip" aria-label="Curaters travel principles"><span>Curated, not crowded</span><i aria-hidden="true">✳</i><span>Rooted in place</span><i aria-hidden="true">✳</i><span>Made to be remembered</span></div>
+
+    <section class="section-shell destination-section" id="destinations" aria-labelledby="destinations-title">
+      <div class="section-head"><div><p class="eyebrow">The continent, thoughtfully explored</p><h2 id="destinations-title">Find your <em>Africa.</em></h2></div><p>From Atlantic histories to Indian Ocean mornings, begin with a place that speaks to you.</p></div>
+      <div class="explorer-tools">
+        <label class="search-control"><span aria-hidden="true">⌕</span><span class="sr-only">Search destinations</span><input id="destinationSearch" type="search" placeholder="Search a place, landscape or activity" autocomplete="off"><button id="clearSearch" type="button" aria-label="Clear search" hidden>×</button></label>
+        <label class="country-control"><span aria-hidden="true">⌖</span><span class="sr-only">Filter by country</span><select id="countryFilter"><option>All countries</option></select><span aria-hidden="true">⌄</span></label>
+      </div>
+      <div class="filter-chips" id="categoryFilters" aria-label="Filter destinations by category"></div>
+      <div class="result-bar"><p id="destinationCount" aria-live="polite">22 places to explore</p><button id="clearFilters" class="text-action" type="button" hidden>Clear filters</button></div>
+      <div class="destination-grid" id="destinationGrid"></div>
+    </section>
+
+    <section class="journeys-section" id="journeys" aria-labelledby="journeys-title">
+      <div class="section-shell">
+        <div class="section-head section-head-light"><div><p class="eyebrow">Find your way</p><h2 id="journeys-title">Travel that feels <em>like you.</em></h2></div><p>Choose a style that fits the moment. Your request starts a conversation, not a confirmed reservation.</p></div>
+        <div class="plan-grid" id="planGrid"></div>
+        <div class="offer-heading"><div><p class="eyebrow">From the Curaters collection</p><h3>Original trip offers</h3></div><div class="filter-chips offer-filters" id="offerFilters" aria-label="Filter offers by trip type"></div></div>
+        <div class="offer-grid" id="offerGrid"></div>
+        <div class="private-access-card">
+          <div><p class="eyebrow">Private journeys</p><h3>Private Access Required</h3><p>These exclusive private experiences are only available to verified guests with authorized access.</p><p class="privacy-note">The supplied preview has no access-key verification service. A key entered here stays on this device and is not transmitted or saved.</p></div>
+          <form id="privateAccessForm" class="access-form"><label for="privateAccessKey">Enter Access Key</label><input id="privateAccessKey" type="password" autocomplete="off" placeholder="Private access key"><button class="button button-primary" type="submit">Continue to private enquiry <span aria-hidden="true">↗</span></button><p id="accessFeedback" class="form-note" role="status" aria-live="polite"></p><a href="mailto:travelcuraters@gmail.com">Need help? Email Curaters</a></form>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section section-shell" id="story" aria-labelledby="story-title">
+      <div class="story-logo"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519664035144184/fSQozJJQelTYBHEI.png" alt="Curaters" width="260" height="50" loading="lazy"><span>TRAVEL, TURNED INTO ART</span></div>
+      <div class="story-copy"><p class="eyebrow">A way of seeing</p><h2 id="story-title">Thoughtful travel.<br><em>Deeply felt.</em></h2><p>Our vision is to turn travel into art, carefully curated, deeply felt, and impossible to forget.</p><a class="text-action" href="mailto:travelcuraters@gmail.com">Tell us what moves you <span aria-hidden="true">↗</span></a></div>
+      <div class="story-stamp"><span>CURATED</span><b>C.</b><span>AFRICA · WITH CARE</span></div>
+    </section>
+
+    <section class="booking-section" id="book" aria-labelledby="booking-title">
+      <div class="section-shell booking-shell">
+        <div class="booking-intro"><p class="eyebrow">A good trip starts with a conversation</p><h2 id="booking-title" tabindex="-1">Let’s make it <em>yours.</em></h2><p>Share the details you know. Your email app will prepare a draft for Curaters; you decide whether to send it.</p><div class="contact-card"><span>Prefer to write directly?</span><a href="mailto:travelcuraters@gmail.com">travelcuraters@gmail.com</a></div></div>
+        <div class="booking-layout">
+          <form class="booking-form" id="bookingForm" novalidate>
+            <fieldset><legend><span>01</span> Your details</legend><div class="form-grid">
+              <div class="form-field"><label for="fullName">Full name <b>*</b></label><input id="fullName" name="fullName" autocomplete="name" required><small class="field-error" id="fullNameError"></small></div>
+              <div class="form-field"><label for="email">Email <b>*</b></label><input id="email" name="email" type="email" autocomplete="email" required><small class="field-error" id="emailError"></small></div>
+              <div class="form-field"><label for="phone">Phone number <b>*</b></label><input id="phone" name="phone" type="tel" autocomplete="tel" required><small class="field-error" id="phoneError"></small></div>
+              <div class="form-field"><label for="travelerCountry">Your country <b>*</b></label><input id="travelerCountry" name="country" autocomplete="country-name" required><small class="field-error" id="travelerCountryError"></small></div>
+            </div></fieldset>
+            <fieldset><legend><span>02</span> Your journey</legend><div class="form-grid">
+              <div class="form-field"><label for="bookingDestination">Destination <b>*</b></label><select id="bookingDestination" name="destination" required><option value="">Select a destination</option></select><small class="field-error" id="bookingDestinationError"></small></div>
+              <div class="form-field"><label for="packageType">Trip style <b>*</b></label><select id="packageType" name="package" required><option value="">Choose a trip style</option><option value="day_trips">Day trips</option><option value="group_trips">Group trips</option><option value="private_trips">Private trips</option><option value="hosted_trips">Hosted trips</option></select><small class="field-error" id="packageTypeError"></small></div>
+              <div class="form-field"><label for="travelStart">Travel dates · start <b>*</b></label><input id="travelStart" name="travelStart" type="date" required><small class="field-error" id="travelStartError"></small></div>
+              <div class="form-field"><label for="travelEnd">Travel dates · return <b>*</b></label><input id="travelEnd" name="travelEnd" type="date" required><small class="field-error" id="travelEndError"></small></div>
+              <div class="form-field"><label for="adults">Adults <b>*</b></label><input id="adults" name="adults" type="number" min="1" max="30" value="1" required><small class="field-error" id="adultsError"></small></div>
+              <div class="form-field"><label for="children">Children</label><input id="children" name="children" type="number" min="0" max="30" value="0"><small class="field-error" id="childrenError"></small></div>
+              <div class="form-field"><label for="accommodation">Accommodation preference <b>*</b></label><select id="accommodation" name="accommodation" required><option value="">Choose a preference</option><option>No preference</option><option>Hotel</option><option>Lodge</option><option>Resort</option><option>Guesthouse</option><option>Other</option></select><small class="field-error" id="accommodationError"></small></div>
+              <div class="form-field"><label for="budget">Budget <span>(optional)</span></label><input id="budget" name="budget" placeholder="Share a preferred range or currency"></div>
+            </div></fieldset>
+            <fieldset><legend><span>03</span> The details that make it yours</legend>
+              <div class="form-field"><label>Activities <b>*</b></label><p class="field-hint">Choose at least one, or select “Not sure yet”.</p><div class="activity-picks" id="activityChoices" role="group" aria-label="Activities"></div><small class="field-error" id="activitiesError"></small></div>
+              <div class="form-field"><label for="specialRequests">Special requests <span>(optional)</span></label><textarea id="specialRequests" name="specialRequests" rows="4" maxlength="3000" placeholder="Anything else you would like Curaters to know?"></textarea><span class="char-count" id="charCount">0 / 3000</span></div>
+              <div class="form-field"><span class="field-label">Preferred contact method <b>*</b></span><div class="radio-row"><label><input type="radio" name="preferredContact" value="Email"> Email</label><label><input type="radio" name="preferredContact" value="Phone"> Phone</label><label><input type="radio" name="preferredContact" value="WhatsApp"> WhatsApp</label></div><small class="field-error" id="preferredContactError"></small></div>
+            </fieldset>
+            <div class="privacy-callout"><strong>No website submission:</strong> this three-file version does not store or send form data to a server. Submitting opens an email draft that you choose whether to send.</div>
+            <button class="button button-primary submit-button" type="submit">Prepare booking email <span aria-hidden="true">↗</span></button>
+            <p id="bookingNotice" class="form-note" role="status" aria-live="polite"></p>
+          </form>
+          <aside class="booking-summary" aria-labelledby="summary-title"><p class="eyebrow">Your request at a glance</p><h3 id="summary-title">A trip taking shape.</h3><dl><div><dt>Destination</dt><dd id="summaryDestination">Choose a place</dd></div><div><dt>Trip style</dt><dd id="summaryPlan">Day trips</dd></div><div><dt>Travel dates</dt><dd id="summaryDates">Add your dates</dd></div><div><dt>Travellers</dt><dd id="summaryGuests">1 adult</dd></div></dl><p class="summary-footnote">Preparing a draft is not a reservation. The website does not receive or retain the information you enter.</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell faq-section" id="faq" aria-labelledby="faq-title"><div class="section-head"><div><p class="eyebrow">A few helpful notes</p><h2 id="faq-title">Good to <em>know.</em></h2></div><p>Small details, clearly explained.</p></div><div class="faq-list">
+      <details><summary>What kinds of trips does Curaters offer?<span aria-hidden="true">+</span></summary><p>Day trips, group trips, private trips and hosted trips. The existing offers and their supplied prices appear above.</p></details>
+      <details><summary>What happens when I prepare a booking email?<span aria-hidden="true">+</span></summary><p>Your device’s email app should open with a draft addressed to travelcuraters@gmail.com. Review it and send it yourself; this website does not submit, store or confirm a booking.</p></details>
+      <details><summary>Can I ask about a destination that is not listed?<span aria-hidden="true">+</span></summary><p>Use the email link to contact Curaters directly at travelcuraters@gmail.com.</p></details>
+      <details><summary>Does the private access field check my key?<span aria-hidden="true">+</span></summary><p>No. The supplied preview contains no key-verification service. A key typed in the field remains on your device and is cleared when you continue to the private-trip enquiry.</p></details>
+    </div></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-main section-shell"><div><a class="footer-brand" href="#top"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519664035144184/NsjWXblcedTCZgfc.png" alt="Curaters" width="190" height="38" loading="lazy"></a><p>Curated African travel experiences</p><p class="footer-vision">Our vision is to turn travel into art, carefully curated, deeply felt, and impossible to forget.</p></div><div><h2>Explore</h2><a href="#destinations">Destinations</a><a href="#journeys">Ways to travel</a><a href="#book">Plan a trip</a></div><div><h2>Say hello</h2><a href="mailto:travelcuraters@gmail.com">travelcuraters@gmail.com</a><a href="https://www.instagram.com/curaters_" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@curaters" target="_blank" rel="noopener noreferrer">TikTok ↗</a></div></div><div class="footer-bottom section-shell"><span>© Curaters · Curated African travel experiences</span><a href="#top">Back to the beginning ↑</a></div></footer>
+
+  <dialog class="destination-dialog" id="destinationDialog" aria-labelledby="dialogTitle"><button id="dialogClose" class="dialog-close" type="button" aria-label="Close destination details">×</button><div class="dialog-grid"><div class="dialog-image-wrap"><img id="dialogImage" src="" alt=""><a id="dialogCredit" class="photo-credit" target="_blank" rel="noopener noreferrer"></a></div><div class="dialog-copy"><p class="eyebrow" id="dialogMeta"></p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><div class="dialog-columns"><div><h3>Places to see</h3><ul id="dialogHighlights"></ul></div><div><h3>Ways to experience it</h3><ul id="dialogActivities"></ul></div></div><button id="dialogBook" class="button button-primary" type="button">Plan this destination <span aria-hidden="true">↗</span></button></div></div></dialog>
+  <a class="mobile-booking" id="mobileBookingLink" href="#book">Plan your trip <span aria-hidden="true">↗</span></a>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+  <noscript>This travel guide needs JavaScript enabled for search, filters and booking-email preparation.</noscript>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
